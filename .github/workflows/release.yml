@@ -1,0 +1,53 @@
+name: Node.js publish npm package
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  release-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 14.x, 16.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+    - run: rm .npmrc
+    - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.YOUTUBE_DATA_FETCHER_PACKAGE_PUBLISH_TOKEN }}" > ~/.npmrc
+    - run: npm install
+    - run: cp sample_env .env
+    - run: npm run build:declarations
+    - run: npm run build --if-present
+    - run: npm run test
+      env:
+        CI: true
+        YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+
+  release-build:
+    needs: release-test
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+    - run: rm .npmrc
+    - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.YOUTUBE_DATA_FETCHER_PACKAGE_PUBLISH_TOKEN }}" > ~/.npmrc
+    - run: npm install
+    - run: npm run build:declarations
+    - run: npm run build --if-present
+    - name: Bump up release version
+      if: ${{ !env.ACT }}
+      run: npm run version:major
+    - run: npm publish
+      env:
+        CI: true
+
+

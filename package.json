@@ -1,0 +1,36 @@
+{
+  "name": "@gaurav-kispotta/ydm-data-models",
+  "version": "1.0.0",
+  "description": "Universal data-models for ydm app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build && nyc --reporter=html mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register test/**/*.spec.ts",
+    "test:watch": "npm run build && mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register --watch --watch-files test/**/*.spec.ts test/**/*.spec.ts",
+    "tests": "mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register test/**/*.spec.ts",
+    "build": "tsc",
+    "build:declarations": "tsc --declaration",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch",
+    "local:github:ci": "local-ci.bat"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "nyc": "^15.1.0",
+    "semver": "^7.3.7",
+    "sinon": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@types/semver": "^7.3.9",
+    "@types/sinon": "^10.0.11",
+    "dotenv": "^16.0.1",
+    "mocha": "^9.2.1",
+    "ts-node": "^10.8.1",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.7.4"
+  }
+}
