@@ -38,8 +38,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
-    - run: rm .npmrc
-    - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.YOUTUBE_DATA_FETCHER_PACKAGE_PUBLISH_TOKEN }} \n@gaurav-kispotta:registry=https://npm.pkg.github.com" > ~/.npmrc
+    - run: sed -e "s/\${GITHUB_TOKEN}/${{ secrets.YOUTUBE_DATA_FETCHER_PACKAGE_PUBLISH_TOKEN }}/" ~/.npmrc
     - run: npm install
     - run: npm run build:declarations
     - run: npm run build --if-present
