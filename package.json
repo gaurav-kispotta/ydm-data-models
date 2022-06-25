@@ -1,6 +1,6 @@
 {
   "name": "@gaurav-kispotta/ydm-data-models",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "description": "Universal data-models for ydm app.",
   "main": "dist/index.js",
   "scripts": {
