@@ -2,7 +2,7 @@
   "name": "@gaurav-kispotta/ydm-data-models",
   "version": "1.0.0",
   "description": "Universal data-models for ydm app.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "npm run build && nyc --reporter=html mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register test/**/*.spec.ts",
     "test:watch": "npm run build && mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register --watch --watch-files test/**/*.spec.ts test/**/*.spec.ts",

@@ -1,6 +1,10 @@
 src/
+test/
 node_modules/
 .github/
 .gitignore
 .gitattributes
 *.json
+*.bat
+sample_env
+.env
