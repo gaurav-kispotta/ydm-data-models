@@ -1,16 +1,15 @@
 # This autmation builds and run test on each branch push.
 # Master branch is omitted from the event.
 
-name: Node.js multibranch build and test
+name: Pull reqeust build & test
 
 on:
-  push:
-    branches:
-      - "*"
-      - "!main"
+  pull_request:
+      branches:
+        - main
 
 jobs:
-  build-test:
+  branch-build-test:
 
     runs-on: ubuntu-latest
 
