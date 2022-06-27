@@ -1,0 +1,38 @@
+name: Build snapshot and publish
+
+on:
+  push:
+    branches:
+      - "*"
+      - "!main"
+
+jobs:
+  build-test-publish-snapshot:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version:  [16]
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - run: rm ./.npmrc
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@gaurav-kispotta'
+    - name: Update package.json
+      run: |
+          npm install
+          node snapshot-image.js
+          npm install
+          npm run build:declarations
+          npm run build
+          npm run test
+          npm publish --tag next
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CI: true
+        YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}

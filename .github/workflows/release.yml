@@ -1,4 +1,4 @@
-name: Node.js publish npm package
+name: Release on Publish Job
 
 on:
   release:
@@ -6,7 +6,7 @@ on:
       - published
 
 jobs:
-  release-test:
+  release-test-publish:
     runs-on: ubuntu-latest
 
     strategy:
