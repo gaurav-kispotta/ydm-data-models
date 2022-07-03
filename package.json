@@ -1,38 +1,55 @@
 {
-  "name": "@gaurav-kispotta/ydm-data-models",
-  "version": "1.0.9",
-  "description": "Universal data-models for ydm app.",
+  "version": "0.1.0",
+  "license": "MIT",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
-    "test": "npm run build && nyc --reporter=html mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register test/**/*.spec.ts",
-    "test:watch": "npm run build && mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register --watch --watch-files test/**/*.spec.ts test/**/*.spec.ts",
-    "tests": "mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register test/**/*.spec.ts",
-    "build": "tsc",
-    "build:declarations": "tsc --declaration",
-    "version:major": "npm version major",
-    "version:minor": "npm version minor",
-    "version:patch": "npm version patch",
-    "local:github:ci": "local-ci.bat"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "chai": "^4.3.6",
-    "jsonfile": "^6.1.0",
-    "nyc": "^15.1.0",
-    "semver": "^7.3.7",
-    "sinon": "^14.0.0",
-    "uuid": "^8.3.2"
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
   },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "ydm-data-models-1",
+  "author": "Gaurav Kispotta",
+  "module": "dist/ydm-data-models-1.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/ydm-data-models-1.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/ydm-data-models-1.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "@types/chai": "^4.3.1",
-    "@types/mocha": "^9.1.1",
-    "@types/semver": "^7.3.9",
-    "@types/sinon": "^10.0.11",
-    "dotenv": "^16.0.1",
-    "mocha": "^9.2.1",
-    "ts-node": "^10.8.1",
-    "tsconfig-paths": "^4.0.0",
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "husky": "^8.0.1",
+    "size-limit": "^7.0.8",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   }
 }

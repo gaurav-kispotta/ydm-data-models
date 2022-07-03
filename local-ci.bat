@@ -1,2 +1,0 @@
-act release -g
-act release --env-file sample_env -e gh-events.json -s YOUTUBE_API_KEY=AIzaSyCDh6M700n1CUiVzwjpl-ZEwvjnVaWg2mE -s YOUTUBE_DATA_FETCHER_PACKAGE_PUBLISH_TOKEN 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
