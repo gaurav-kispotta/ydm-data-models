@@ -1,6 +1,10 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "include": ["src", "types"],
+  "exclude": [
+      "node_modules",
+      "dist",
+    ],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
@@ -21,6 +25,11 @@
     "noUnusedParameters": true,
     // use Node's module resolution algorithm, instead of the legacy TS one
     "moduleResolution": "node",
+    "baseUrl": "./src",                       /* Base directory to resolve non-absolute module names. */
+    "paths": {
+      "@ydm-data-models/ydm-models/v1": ["./models/ydm/v1/index.ts"],
+      "@ydm-data-models/youtube-api/v3": ["./models/youtube-api/v3/index.ts"],
+    },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // transpile JSX to React.createElement
     "jsx": "react",
     // interop between ESM and CJS modules. Recommended by TS

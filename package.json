@@ -1,4 +1,5 @@
 {
+  "name": "@gaurav-kispotta/ydm-data-models",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,7 +20,6 @@
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -31,7 +31,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "ydm-data-models-1",
   "author": "Gaurav Kispotta",
   "module": "dist/ydm-data-models-1.esm.js",
   "size-limit": [
@@ -46,10 +45,14 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.8",
+    "@types/semver": "^7.3.10",
     "husky": "^8.0.1",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "semver": "^7.3.7"
   }
 }
