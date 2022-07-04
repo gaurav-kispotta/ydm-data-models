@@ -5,4 +5,4 @@ export const sum = (a: number, b: number):number => {
   return a + b;
 };
 
-export { YdmGlobalConfig, YdmChannelModel, YdmDashboard, YdmVideoModel } from '@ydm-data-models/ydm-models/v1';
+export { YdmGlobalConfig, YdmChannelModel, YdmDashboard, YdmVideoModel } from './models/ydm/v1';
