@@ -1,30 +1,30 @@
 export class YoutubeVideoResponse {
-    kind: string
-    etag: string
-    items: Item[]
-    pageInfo: PageInfo
+    kind: string | undefined;
+    etag: string | undefined;
+    items: Item[] | undefined;
+    pageInfo: PageInfo | undefined;
   }
   
   export class Item {
-    kind: string
-    etag: string
-    id: string
-    snippet: Snippet
-    statistics: Statistics
+    kind: string | undefined;
+    etag: string | undefined;
+    id: string | undefined;
+    snippet: Snippet | undefined;
+    statistics: Statistics | undefined;
   }
   
   export class Snippet {
-    publishedAt: string
-    channelId: string
-    title: string
-    description: string
-    thumbnails: Thumbnails
-    channelTitle: string
-    tags: string[]
-    categoryId: string
-    liveBroadcastContent: string
-    localized: Localized
-    defaultAudioLanguage: string
+    publishedAt: string | undefined;
+    channelId: string | undefined;
+    title: string | undefined;
+    description: string | undefined;
+    thumbnails: Thumbnails | undefined;
+    channelTitle: string | undefined;
+    tags: string[] | undefined;
+    categoryId: string | undefined;
+    liveBroadcastContent: string | undefined;
+    localized: Localized | undefined;
+    defaultAudioLanguage: string | undefined;
   }
   
   export interface Thumbnails {
