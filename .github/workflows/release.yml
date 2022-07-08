@@ -28,7 +28,7 @@ jobs:
         YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
 
   release-build:
-    needs: release-test
+    needs: release-test-publish
     runs-on: ubuntu-latest
 
     strategy:
