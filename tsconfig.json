@@ -68,9 +68,8 @@
     "resolveJsonModule": true,
 
     "plugins": [
-      {
-        "name": "typescript-tslint-plugin"
-      }
+      { "transform": "typescript-transform-paths" },
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
     ]
   },
   "include": ["./*.ts", "src/**/*.ts", "test/**/*.ts"],
