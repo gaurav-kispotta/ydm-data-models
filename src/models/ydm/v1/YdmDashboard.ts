@@ -8,13 +8,13 @@ export class YdmDashboard {
     public publishedAt: Date;
 
     // Statistics
-    public totalChannels: number;
-    public totalVideos: number;
-    public totalViews: number;
-    public totalLikes: number;
-    public totalDislikes: number;
-    public totalComments: number;
-    public totalSubscribers: number;
+    public totalChannels: bigint;
+    public totalVideos: bigint;
+    public totalViews: bigint;
+    public totalLikes: bigint;
+    public totalDislikes: bigint;
+    public totalComments: bigint;
+    public totalSubscribers: bigint;
 
     // Channels
     public Channels: YdmChannelModel[];
