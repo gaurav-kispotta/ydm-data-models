@@ -4,4 +4,7 @@ export class YdmVideoModel {
     public description: string;
     public publishedAt: string;
     public channelId: string;
+
+    // Other meta data
+    public commentsCount: bigint;
 }

@@ -6,10 +6,10 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "setup:environment": "npx ts-patch install",
-    "test": "npm run build && nyc --reporter=html mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register test/**/*.spec.ts",
+    "test": "npm run build && npx nyc --reporter=html mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register test/**/*.spec.ts",
     "test:watch": "npm run build && mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register --watch --watch-files test/**/*.spec.ts test/**/*.spec.ts",
     "tests": "mocha -r ts-node/register -r dotenv/config -r tsconfig-paths/register test/**/*.spec.ts",
-    "build": "npx tsc",
+    "build": "npm run setup:environment && npx tsc",
     "build:declarations": "npx tsc --declaration",
     "version:major": "npm version major",
     "version:minor": "npm version minor",
